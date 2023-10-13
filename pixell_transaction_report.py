@@ -1,8 +1,8 @@
 """
 Description: A program that reads through transaction records and reports the results.
 Author: ACE Faculty
-Edited by: {Student Name}
-Date: {Date}
+Edited by: Dongok Yang
+Date: 2023.10.13
 Usage: This program will read transaction data from a .csv file, summarize and 
 report the results.
 """
@@ -20,45 +20,49 @@ error_message = ''
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
+try:
+    with open('bank_data.csv', 'r') as csv_file:
+        reader = csv.reader(csv_file)
 
-with open('bank_data.csv', 'r') as csv_file:
-    reader = csv.reader(csv_file)
-    for row in reader:
-        # Reset valid record and error message for each iteration
-        valid_record = True
-        error_message = ''
+        for row in reader:
+            # Reset valid record and error message for each iteration
+            valid_record = True
+            error_message = ''
 
-        # Extract the customer ID from the first column
-        customer_id = row[0]
-        
-        # Extract the transaction type from the second column
-        transaction_type = row[1]
-        ### VALIDATION 1 ###
-
-        # Extract the transaction amount from the third column
-        ### VALIDATION 2 ###
-        transaction_amount = float(row[2])
-
-        if valid_record:
-            # Initialize the customer's account balance if it doesn't already exist
-            if customer_id not in customer_data:
-                customer_data[customer_id] = {'balance': 0, 'transactions': []}
-
-            # Update the customer's account balance based on the transaction type
-            elif transaction_type == 'deposit':
-                customer_data[customer_id]['balance'] += transaction_amount
-                transaction_count += 1
-                total_transaction_amount += transaction_amount
-            elif transaction_type == 'withdrawal':
-                customer_data[customer_id]['balance'] += transaction_amount
-                transaction_count += 1
-                total_transaction_amount += transaction_amount
+            # Extract the customer ID from the first column
+            customer_id = row[0]
             
-            # Record  transactions in the customer's transaction history
-            customer_data[customer_id]['transactions'].append((transaction_amount, transaction_type))
-        
-        ### COLLECT INVALID RECORDS ###
-        
+            # Extract the transaction type from the second column
+            transaction_type = row[1]
+            ### VALIDATION 1 ###
+
+            # Extract the transaction amount from the third column
+            ### VALIDATION 2 ###
+            transaction_amount = float(row[2])
+
+            if valid_record:
+                # Initialize the customer's account balance if it doesn't already exist
+                if customer_id not in customer_data:
+                    customer_data[customer_id] = {'balance': 0, 'transactions': []}
+
+                # Update the customer's account balance based on the transaction type
+                elif transaction_type == 'deposit':
+                    customer_data[customer_id]['balance'] += transaction_amount
+                    transaction_count += 1
+                    total_transaction_amount += transaction_amount
+                elif transaction_type == 'withdrawal':
+                    customer_data[customer_id]['balance'] += transaction_amount
+                    transaction_count += 1
+                    total_transaction_amount += transaction_amount
+                
+                # Record  transactions in the customer's transaction history
+                customer_data[customer_id]['transactions'].append((transaction_amount, transaction_type))
+            
+            ### COLLECT INVALID RECORDS ###
+except FileNotFoundError as e:
+    print("ERROR:",e)
+except Exception as e:
+    print("ERROR:",e)
 
 
 print("PiXELL River Transaction Report\n===============================\n")
