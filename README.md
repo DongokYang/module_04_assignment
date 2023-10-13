@@ -13,4 +13,6 @@ Dongok Yang
 [Indicate the name and description of the assignment the project is related to]
 
 ## Code Modification:
-Update 1 : added try-except to pixell_transaction_report to identify what error has happened
+added try-except to pixell_transaction_report to identify what error has happened
+## Code Modification:
+added VALIDATION 1, VALIDATION 2, and try-except codes to collect rejected records
