@@ -66,6 +66,12 @@ try:
                 customer_data[customer_id]['transactions'].append((transaction_amount, transaction_type))
             
             ### COLLECT INVALID RECORDS ###
+            else:
+                error_cause_and_error_message = (row,error_message)
+                rejected_records.append(error_cause_and_error_message)
+
+
+                
 except FileNotFoundError as e:
     print("ERROR:",e)
 except Exception as e:
