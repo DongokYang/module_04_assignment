@@ -87,7 +87,7 @@ for customer_id, data in customer_data.items():
         amount, type = transaction
         print(f"\t{type.capitalize()}: {amount}")
 
-print(f"\nAVERAGE TRANSACTION AMOUNT: {(total_transaction_amount / transaction_counter)}")
+print(f"\nAVERAGE TRANSACTION AMOUNT: {(total_transaction_amount / transaction_count)}")
 
 print("\nREJECTED RECORDS\n================")
 for record in rejected_records:

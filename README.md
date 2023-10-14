@@ -16,3 +16,7 @@ Dongok Yang
 added try-except to pixell_transaction_report to identify what error has happened
 ## Code Modification:
 added VALIDATION 1, VALIDATION 2, and try-except codes to collect rejected records
+## Code Modification:
+changed line 56 elif to if to make sure it works.
+## Code Modification:
+changed line 90 from transaction_counter to transaction_count 
