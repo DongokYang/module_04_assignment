@@ -58,7 +58,7 @@ try:
                     transaction_count += 1
                     total_transaction_amount += transaction_amount
                 elif transaction_type == 'withdrawal':
-                    customer_data[customer_id]['balance'] += transaction_amount
+                    customer_data[customer_id]['balance'] -= transaction_amount
                     transaction_count += 1
                     total_transaction_amount += transaction_amount
                 

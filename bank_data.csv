@@ -1,2 +1,6 @@
 ﻿CustomerId,TransactionType,TransactionAmount
 A123,deposit,10000
+A224,deposit,5000
+A232,deposit,20200
+A431,deposit,443.99
+A553,withdraw,1O1.05
