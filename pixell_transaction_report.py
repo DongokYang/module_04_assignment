@@ -13,7 +13,6 @@ valid_transaction_types = ['deposit', 'withdraw']
 customer_data = {}
 rejected_records = []
 transaction_count = 0
-transaction_counter = 0
 total_transaction_amount = 0
 valid_record = True
 error_message = ''
@@ -57,7 +56,7 @@ try:
                     customer_data[customer_id]['balance'] += transaction_amount
                     transaction_count += 1
                     total_transaction_amount += transaction_amount
-                elif transaction_type == 'withdrawal':
+                elif transaction_type == 'withdraw':
                     customer_data[customer_id]['balance'] -= transaction_amount
                     transaction_count += 1
                     total_transaction_amount += transaction_amount

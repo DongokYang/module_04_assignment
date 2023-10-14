@@ -20,3 +20,7 @@ added VALIDATION 1, VALIDATION 2, and try-except codes to collect rejected recor
 changed line 56 elif to if to make sure it works.
 ## Code Modification:
 changed line 90 from transaction_counter to transaction_count 
+## Code Modification:
+changed line 61 from '+=' to '-='
+## Code Modification:
+changed line 59 from 'withdrawal' to 'withdraw' 
