@@ -22,6 +22,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 try:
     with open('bank_data.csv', 'r') as csv_file:
         reader = csv.reader(csv_file)
+        headers = next(reader)
 
         for row in reader:
             # Reset valid record and error message for each iteration
@@ -79,14 +80,14 @@ print("PiXELL River Transaction Report\n===============================\n")
 for customer_id, data in customer_data.items():
     balance = data['balance']
 
-    print(f"\nCustomer {customer_id} has a balance of {balance}.")
+    print(f"\nCustomer {customer_id} has a balance of {balance:.2f}.")
     # Print the transaction history for the customer
     print("Transaction History:")
     for transaction in data['transactions']:
         amount, type = transaction
         print(f"\t{type.capitalize()}: {amount}")
 
-print(f"\nAVERAGE TRANSACTION AMOUNT: {(total_transaction_amount / transaction_count)}")
+print(f"\nAVERAGE TRANSACTION AMOUNT: {(total_transaction_amount / transaction_count):.2f}")
 
 print("\nREJECTED RECORDS\n================")
 for record in rejected_records:
