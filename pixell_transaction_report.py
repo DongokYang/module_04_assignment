@@ -37,7 +37,7 @@ try:
             ### VALIDATION 1 ###
             if transaction_type not in valid_transaction_types:
                 valid_record = False 
-                error_message = "Record has an invalid transaction type"
+                error_message = "Record has an invalid transaction type."
 
             # Extract the transaction amount from the third column
             ### VALIDATION 2 ###
@@ -45,7 +45,7 @@ try:
                 transaction_amount = float(row[2])
             except :
                 valid_record = False
-                error_message = "Variable indicating that the record has a non-numeric transaction amount."
+                error_message += "Variable indicating that the record has a non-numeric transaction amount."
 
             if valid_record:
                 # Initialize the customer's account balance if it doesn't already exist
@@ -80,14 +80,14 @@ print("PiXELL River Transaction Report\n===============================\n")
 for customer_id, data in customer_data.items():
     balance = data['balance']
 
-    print(f"\nCustomer {customer_id} has a balance of {balance:.2f}.")
+    print(f"\nCustomer {customer_id} has a balance of ${balance:.2f}.")
     # Print the transaction history for the customer
     print("Transaction History:")
     for transaction in data['transactions']:
         amount, type = transaction
-        print(f"\t{type.capitalize()}: {amount}")
+        print(f"\t{type.capitalize()}: ${amount}")
 
-print(f"\nAVERAGE TRANSACTION AMOUNT: {(total_transaction_amount / transaction_count):.2f}")
+print(f"\nAVERAGE TRANSACTION AMOUNT: ${(total_transaction_amount / transaction_count):.2f}")
 
 print("\nREJECTED RECORDS\n================")
 for record in rejected_records:
